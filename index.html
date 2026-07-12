@@ -6,10 +6,10 @@
     <title>Spiaggia Cariló - Fábrica de Pastas Artesanales</title>
     <!-- Tailwind CSS para diseño rápido y responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display para títulos sofisticados e Inter para lectura -->
+    <!-- Google Fonts: Playfair Display e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- FontAwesome para iconos modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -82,13 +82,18 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative text-sand py-28 px-6 overflow-hidden" style="background-color: #1E332B; color: #FAF8F5;">
-        <!-- Contenedor absoluto para la imagen real del bosque -->
-        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('images/spiaggiacarilo/bosque-background.png');"></div>
-        <!-- Capa verde pino semi-transparente para asegurar la legibilidad del texto -->
+    <!-- HERO SECTION (Soporte total para visualización en celulares) -->
+    <section class="relative text-sand py-24 sm:py-32 px-6 overflow-hidden bg-forest flex items-center justify-center" style="background-color: #1E332B; min-height: 450px;">
+        <!-- IMAGEN DE FONDO ABSOLUTA: Este método jamás falla en navegadores móviles -->
+        <img src="images/spiaggiacarilo/bosque-background.png" 
+             alt="Bosque Cariló" 
+             class="absolute inset-0 w-full h-full object-cover z-0 object-center opacity-30"
+             onerror="this.onerror=null; this.style.display='none';">
+        
+        <!-- Capa verde pino semi-transparente para asegurar la legibilidad del texto en móviles -->
         <div class="absolute inset-0 z-10" style="background-color: rgba(30, 51, 43, 0.85);"></div>
         
+        <!-- Contenido principal -->
         <div class="relative max-w-4xl mx-auto text-center z-20">
             <span class="text-xs uppercase tracking-[0.3em] text-stone-300 font-semibold mb-3 block">Fábrica de Pastas Frescas</span>
             <h1 class="font-serif text-4xl sm:text-6xl text-sand font-bold mb-6 leading-tight" style="color: #FAF8F5;">
@@ -147,7 +152,7 @@
                 </p>
             </div>
 
-            <!-- Grilla de Pastas (6 fotos reales) -->
+            <!-- Grilla de Pastas -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Pasta 1: Raviolones de Bondiola -->
@@ -288,21 +293,25 @@
                 </div>
             </div>
 
-            <!-- Mapa / Ilustración estática premium del local -->
-            <div class="relative h-80 rounded-3xl overflow-hidden border border-stone-200 flex items-center justify-center p-6 text-center" style="background-color: #1E332B;">
-                <!-- Fondo con la foto del bosque de Cariló -->
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/spiaggiacarilo/bosque-background.png');"></div>
-                <!-- Capa clara súper suave para que resalte la tarjeta -->
-                <div class="absolute inset-0" style="background-color: rgba(242, 239, 233, 0.92);"></div>
+            <!-- Caja decorativa de ubicación (Soporte total para celulares) -->
+            <div class="relative h-80 rounded-3xl overflow-hidden border border-stone-200 flex items-center justify-center p-6 text-center bg-forest" style="background-color: #1E332B;">
+                <!-- IMAGEN DE FONDO ABSOLUTA PARA CELULARES -->
+                <img src="images/spiaggiacarilo/bosque-background.png" 
+                     alt="Bosque de fondo" 
+                     class="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+                     onerror="this.onerror=null; this.style.display='none';">
                 
-                <div class="relative z-10">
+                <!-- Capa clara súper suave para que resalte la tarjeta -->
+                <div class="absolute inset-0 z-10" style="background-color: rgba(242, 239, 233, 0.92);"></div>
+                
+                <div class="relative z-20">
                     <span class="text-forest text-4xl mb-3 block" style="color: #1E332B;"><i class="fa-solid fa-map-location-dot"></i></span>
                     <h4 class="font-serif text-2xl text-forest font-bold mb-2" style="color: #1E332B;">Paseo Terrazas</h4>
                     <p class="text-stone-600 text-sm max-w-xs mx-auto mb-6">Retirá tu pedido recién hecho en nuestro punto exclusivo de entregas en el centro comercial.</p>
                     <a href="https://wa.me/5492254000000" 
                        target="_blank" 
                        rel="noopener noreferrer" 
-                       class="inline-block text-sand px-6 py-3 rounded-full text-xs uppercase tracking-wider font-bold hover:bg-forest/90 transition-all"
+                       class="inline-block text-sand px-6 py-3 rounded-full text-xs uppercase tracking-wider font-bold hover:bg-forest/90 transition-all shadow-md"
                        style="background-color: #1E332B; color: #FAF8F5;">
                         Pedir por WhatsApp
                     </a>
@@ -352,6 +361,16 @@
 
         </div>
     </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP (Aparece únicamente en formato celular / móvil) -->
+    <a href="https://wa.me/5492254000000" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 flex items-center justify-center md:hidden"
+       aria-label="Pedir por WhatsApp"
+       style="background-color: #25D366; color: #ffffff; width: 60px; height: 60px; border-radius: 9999px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
 
 </body>
 </html>
